@@ -12,6 +12,15 @@ class GameCreep extends GameObject {
         this._creep = creep;
     }
 
+    count() {              
+        let creeps = this._room.find(FIND_MY_CREEPS, {
+            filter: creep => {
+                return creep.memory.role == this._role;
+            }
+        }).length;        
+        return creeps;
+    }
+
     // Проверка соответствует ли крип роли
     isFitRole() {
         if (this._creep.memory.role == this._role) return true;

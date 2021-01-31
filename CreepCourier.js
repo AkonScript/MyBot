@@ -14,7 +14,7 @@ class CreepCourier extends GameCreep {
         this._body = [CARRY, CARRY, MOVE];
         this._role = "Courier";
         this._nameCreep = this._role + this._time;
-    }
+    }   
 
     work() {
         if (this.isFitRole()) {

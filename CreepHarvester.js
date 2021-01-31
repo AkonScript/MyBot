@@ -8,20 +8,20 @@
  */
 let GameCreep = require('GameCreep');
 
-class CreepHarvester extends GameCreep {
+class CreepHarvester extends GameCreep {  
     constructor(creep, room) {
         super(creep, room);
         this._body = [WORK, WORK, MOVE];
         this._role = "Harvester";
         this._nameCreep = this._role + this._time;
     }
-
-    work() {      
+    
+    work() {
         if (this.isFitRole()) {
-            const target = this._creep.pos.findClosestByRange(FIND_SOURCES_ACTIVE);           
-            if (target) {                
+            const target = this._creep.pos.findClosestByRange(FIND_SOURCES_ACTIVE);
+            if (target) {
                 if (this._creep.harvest(target) == ERR_NOT_IN_RANGE) {
-                    this._creep.moveTo(target);                   
+                    this._creep.moveTo(target);
                 }
             }
             return true;

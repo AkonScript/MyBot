@@ -4,6 +4,7 @@
 let CreepHarvester = require('CreepHarvester');
 let CreepCourier = require('CreepCourier');
 let GameObject = require('GameObject');
+let Plan = require('Plan');
 
 class GameManager extends GameObject {
     constructor(room) {
@@ -11,7 +12,9 @@ class GameManager extends GameObject {
     }
 
     // Спавнит крипов
-    spawnCreeps() {
+    spawnCreeps() {   
+        console.log(new CreepHarvester("", this._room).count());     
+        console.log(new CreepCourier("", this._room).count());     
         new CreepHarvester().spawn();       
         new CreepCourier().spawn();       
         return true;
