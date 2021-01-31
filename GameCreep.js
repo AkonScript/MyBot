@@ -4,19 +4,29 @@
 let GameObject = require('GameObject');
 
 class GameCreep extends GameObject {
-    constructor(name) { 
-        super();         
-        this._nameCreep; 
+    constructor(creep) {
+        super();
         this._body;
-        this._role;        
+        this._role;
+        this._nameCreep;
+        this._creep = creep;
     }
 
+    // Проверка соответствует ли крип роли
+    isFitRole() {
+        if (this._creep.memory.role == this._role) return true;
+        else return false;
+    }
+
+    // Спавн крипа
     spawn() {
         Game.spawns['Spawn1'].spawnCreep(this._body, this._nameCreep, {
-            memory: {role: this._role}
+            memory: {
+                role: this._role
+            }
         });;
         return true;
-    }  
+    }
 
 
 }
