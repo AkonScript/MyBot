@@ -13,10 +13,16 @@ class GameManager extends GameObject {
 
     // Спавнит крипов
     spawnCreeps() {   
-        console.log(new CreepHarvester("", this._room).count());     
-        console.log(new CreepCourier("", this._room).count());     
-        new CreepHarvester().spawn();       
-        new CreepCourier().spawn();       
+        const numberHarvesters = new CreepHarvester("", this._room).count();           
+        const numberCouriers = new CreepCourier("", this._room).count();           
+        
+        if (numberHarvesters < new Plan().numberOfHarvesters) {              
+            new CreepHarvester().spawn(); 
+        }
+        if (numberCouriers < new Plan().numberOfCouriers) {            
+            new CreepCourier().spawn(); 
+        }    
+              
         return true;
     }
 
@@ -34,7 +40,6 @@ class GameManager extends GameObject {
         this.spawnCreeps();
         this.creepsWork();
         return true;
-
     }
 }
 

@@ -10,13 +10,13 @@
 class Plan {
     constructor() {
         this._numberOfHarvesters = 2;
-        this._numberOfCouriers = 3;
+        this._numberOfCouriers = 2;
     }
 
-    static get numberOfHarvesters() {
+    get numberOfHarvesters() {
         return this._numberOfHarvesters;
     }
-    static get numberOfCouriers() {
+    get numberOfCouriers() {
         return this._numberOfCouriers;
     }
 }
