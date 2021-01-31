@@ -1,10 +1,17 @@
 /**
  * Класс управляет игрой, что надо делать 
  */
-
+let CreepHarvester = require('CreepHarvester')
 class GameManager 
 {   
-    run() {
+    spawn() {
+        let creepHarvester = new CreepHarvester();
+        creepHarvester.spawn();
+        return true;
+    }
+
+    run() {        
+        this.spawn();
         return true;
     }
 }
