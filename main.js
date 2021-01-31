@@ -3,8 +3,7 @@ module.exports.loop = function () {
     for (var name in Game.rooms) {
         var room = Game.rooms[name];
         let GameManager = require('GameManager');
-        let gameManager = new GameManager(room);
-        gameManager.run();
+        new GameManager(room).run();        
     }
 }
 
