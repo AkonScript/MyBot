@@ -1,8 +1,8 @@
 
 module.exports.loop = function () {
 
-    let GameCreepClass = require('GameCreep');
-    let gameCreep = new GameCreepClass();    
+    let GameManager = require('GameManager');
+    let gameManager = new GameManager();    
     
-    console.log(gameCreep);
+    console.log(gameManager.run());
 }
