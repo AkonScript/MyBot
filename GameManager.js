@@ -14,10 +14,11 @@ class GameManager {
 
     creepsWork() {
 
-        for (var creep in Memory.creeps) {
-            let creepHarvester = new CreepHarvester(creep); 
+        for (var nameCreep in Game.creeps) {
+            console.log(nameCreep);
+            let creepHarvester = new CreepHarvester(Game.creeps[nameCreep]); 
             creepHarvester.work();
-            console.log(creep);
+           
         }
 
     }
