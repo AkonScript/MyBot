@@ -4,8 +4,8 @@
 let GameObject = require('GameObject');
 
 class GameCreep extends GameObject {
-    constructor(creep) {
-        super();
+    constructor(creep, room) {
+        super(room);
         this._body;
         this._role;
         this._nameCreep;

@@ -2,28 +2,31 @@
  * Класс управляет игрой, что надо делать 
  */
 let CreepHarvester = require('CreepHarvester');
+let CreepCourier = require('CreepCourier');
 let GameObject = require('GameObject');
 
 class GameManager extends GameObject {
     constructor(room) {
-        super()
-        this._room = room;
+        super(room)       
     }
+
+    // Спавнит крипов
     spawnCreeps() {
-        let creepHarvester = new CreepHarvester();
-        creepHarvester.spawn();
+        new CreepHarvester().spawn();       
+        new CreepCourier().spawn();       
         return true;
     }
 
+    // Посылает крипов на работу
     creepsWork() {
         let creeps = this._room.find(FIND_MY_CREEPS);
-        creeps.forEach(creep => {
-            console.log(creep);
-            let creepHarvester = new CreepHarvester(creep); 
-            creepHarvester.work(); 
+        creeps.forEach(creep => {           
+            new CreepHarvester(creep).work();             
+            new CreepCourier(creep).work();             
         });        
     }
 
+    
     run() {
         this.spawnCreeps();
         this.creepsWork();

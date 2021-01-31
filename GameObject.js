@@ -3,8 +3,9 @@
  */
 
 class GameObject {  
-    constructor() {
-        this._time = Game.time;       
+    constructor(room) {
+        this._time = Game.time;   
+        this._room = room;    
     }
 
 }

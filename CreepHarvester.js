@@ -9,8 +9,8 @@
 let GameCreep = require('GameCreep');
 
 class CreepHarvester extends GameCreep {
-    constructor(creep) {
-        super(creep);
+    constructor(creep, room) {
+        super(creep, room);
         this._body = [WORK, WORK, MOVE];
         this._role = "Harvester";
         this._nameCreep = this._role + this._time;
