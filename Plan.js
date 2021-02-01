@@ -11,6 +11,7 @@ class Plan {
     constructor() {
         this._numberOfHarvesters = 2;
         this._numberOfCouriers = 2;
+        this._numberOfUpgrader = 2;
     }
 
     get numberOfHarvesters() {
@@ -18,6 +19,9 @@ class Plan {
     }
     get numberOfCouriers() {
         return this._numberOfCouriers;
+    }
+    get numberOfUpgrader() {
+        return this._numberOfUpgrader;
     }
 }
 
