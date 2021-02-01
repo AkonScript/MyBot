@@ -9,20 +9,24 @@ let Plan = require('Plan');
 
 class GameManager extends GameObject {
     constructor(room) {
-        super(room)       
-    }
+        super(room);
+        this._plan = new Plan(); 
+        this._creepUpgrader = new CreepUpgrader("",this._room);      
+        this.creepHarvester = new CreepHarvester("",this._room);      
+        this._creepCourier = new CreepCourier("",this._room);      
+    }    
 
     // Спавнит крипов
     spawnCreeps() {  
         
-        if (new CreepUpgrader("", this._room).count() < new Plan().numberOfUpgrader) {            
-            new CreepUpgrader().spawn(); 
+        if (this._creepUpgrader.count() < this._plan.numberOfUpgrader) {            
+            this._creepUpgrader.spawn(); 
         }    
-        if (new CreepHarvester("", this._room).count() < new Plan().numberOfCouriers) {            
-            new CreepCourier().spawn(); 
+        if (this._creepCourier.count() < this._plan.numberOfCouriers) {            
+            this._creepCourier.spawn(); 
         }    
-        if (new CreepCourier("", this._room).count() < new Plan().numberOfHarvesters) {              
-            new CreepHarvester().spawn(); 
+        if (this.creepHarvester.count() < this._plan.numberOfHarvesters) {              
+            this.creepHarvester.spawn(); 
         }
               
         return true;
